@@ -19,7 +19,7 @@ module.exports = {
                 text: '项目',
                 ariaLabel: '项目',
                 items: [
-                    { text: 'GLS', link: '/pages/components/basic/normalText.md' },
+                    { text: 'GLS', link: '/pages/gls/components/basic/normalText.md' },
                     { text: '其他1', link: '/pages/folder1/test1.md' },
                     { text: '其他2', link: '/pages/folder2/test4.md' },
                 ]
@@ -27,7 +27,7 @@ module.exports = {
             { text: 'Github', link: 'https://github.com/dwanda' },
         ],
         sidebar: {
-            '/pages/components/':[
+            '/pages/gls/':[
                 {
                     title: '组件',
                     collapsable: false,
@@ -40,20 +40,20 @@ module.exports = {
                             sidebarDepth: 0,
                             children:
                                 [
-                                    ['basic/normalText.md', '普通文本'],
-                                    ['basic/title.md', '标题'],
-                                    ['basic/linkText.md', '标签文本'],
-                                    ['basic/richText.md', '富文本组件'],
-                                    ['basic/countDown.md', '倒计时'],
-                                    ['basic/divide.md', '分割线'],
-                                    ['basic/image.md', '图片'],
-                                    ['basic/swiper.md', '轮播图'],
-                                    ['basic/swiperWithText.md', '带文字轮播图'],
-                                    ['basic/anchor.md', '导航锚点型'],
-                                    ['basic/hotZone.md', '热区'],
-                                    ['basic/audio.md', '音频'],
-                                    ['basic/shortVideo.md', '短视频'],
-                                    ['basic/nav.md', '标签卡'],
+                                    ['components/basic/normalText.md', '普通文本'],
+                                    ['components/basic/title.md', '标题'],
+                                    ['components/basic/linkText.md', '标签文本'],
+                                    ['components/basic/richText.md', '富文本组件'],
+                                    ['components/basic/countDown.md', '倒计时'],
+                                    ['components/basic/divide.md', '分割线'],
+                                    ['components/basic/image.md', '图片'],
+                                    ['components/basic/swiper.md', '轮播图'],
+                                    ['components/basic/swiperWithText.md', '带文字轮播图'],
+                                    ['components/basic/anchor.md', '导航锚点型'],
+                                    ['components/basic/hotZone.md', '热区'],
+                                    ['components/basic/audio.md', '音频'],
+                                    ['components/basic/shortVideo.md', '短视频'],
+                                    ['components/basic/nav.md', '标签卡'],
                                 ]
                         },
                         {
@@ -61,14 +61,14 @@ module.exports = {
                             collapsable: true,
                             sidebarDepth: 0,    // 可选的, 默认值是 1
                             children: [
-                                ['higo/messageBoard.md', '留言板'],
-                                ['higo/productList.md', '商品列表'],
-                                ['higo/imageWithSingleProduct.md', '图片 + 单品'],
-                                ['higo/imageWithText.md', '图片 + 文字'],
-                                ['higo/relatedHotSpots.md', '相关热点'],
-                                ['higo/normalCoupon.md', '普通优惠券'],
-                                ['higo/threeColumnCoupon.md', '三列单品带优惠券'],
-                                ['higo/couponGroup.md', '优惠券组'],
+                                ['components/higo/messageBoard.md', '留言板'],
+                                ['components/higo/productList.md', '商品列表'],
+                                ['components/higo/imageWithSingleProduct.md', '图片 + 单品'],
+                                ['components/higo/imageWithText.md', '图片 + 文字'],
+                                ['components/higo/relatedHotSpots.md', '相关热点'],
+                                ['components/higo/normalCoupon.md', '普通优惠券'],
+                                ['components/higo/threeColumnCoupon.md', '三列单品带优惠券'],
+                                ['components/higo/couponGroup.md', '优惠券组'],
                             ]
                         },
                         {
@@ -76,8 +76,8 @@ module.exports = {
                             collapsable: true,
                             sidebarDepth: 0,    // 可选的, 默认值是 1
                             children: [
-                                ['vo/singleProduct.md', 'VO单品'],
-                                ['vo/imageDivide.md', '裁图分割线']
+                                ['components/vo/singleProduct.md', 'VO单品'],
+                                ['components/vo/imageDivide.md', '裁图分割线']
                             ]
                         },
                         {
@@ -85,7 +85,7 @@ module.exports = {
                             collapsable: true,
                             sidebarDepth: 0,    // 可选的, 默认值是 1
                             children: [
-                                ['stockX/stockXProductList.md', 'stockX商品列表']
+                                ['components/stockX/stockXProductList.md', 'stockX商品列表']
                             ]
                         },
                         {
@@ -93,12 +93,18 @@ module.exports = {
                             collapsable: true,
                             sidebarDepth: 0,    // 可选的, 默认值是 1
                             children: [
-                                ['xiaoZhuo/product.md', '小着横滑商品组件'],
-                                ['xiaoZhuo/userInfo.md', '小着个人信息']
+                                ['components/xiaoZhuo/product.md', '小着横滑商品组件'],
+                                ['components/xiaoZhuo/userInfo.md', '小着个人信息']
                             ]
                         }
                     ]
                 },
+                {
+
+                        title: '名词解释',
+                        path:'/pages/gls/explain/',
+
+                }
 
             ],
             '/pages/folder1/':[
@@ -121,5 +127,15 @@ module.exports = {
             ],
 
         }
-    }
+    },
+    plugins: [
+        [
+            'vuepress-plugin-clean-urls',
+            {
+                normalSuffix: '/',
+                indexSuffix: '/',
+                notFoundPath: '/404.html',
+            },
+        ],
+    ],
 }

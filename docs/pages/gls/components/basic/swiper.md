@@ -1,5 +1,5 @@
 ## 轮播图
-使用<gls-explain :proplist="['图片上传']"></gls-explain>上传若干图片后，自动组成一个轮播图。有 **5** 个轮播效果可供选择。
+使用<gls-explain :proplist="['图片批量上传与设置']"></gls-explain>上传若干图片后，自动组成一个轮播图。有 **5** 个轮播效果可供选择。
   
 每个图片还可以设置单独的链接，见<gls-explain :proplist="['跳转类型']"></gls-explain>。
 

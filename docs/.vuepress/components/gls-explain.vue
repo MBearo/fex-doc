@@ -1,6 +1,8 @@
 <template>
   <span>
-    <span class="text" v-for="item in $props.proplist">{{item}}</span>
+    <RouterLink :to="`/pages/gls/explain/#${item}`"  v-for="item in $props.proplist">
+      <span class="text">{{item}}</span>
+    </RouterLink>
   </span>
 </template>
 
@@ -21,6 +23,7 @@ export default {
     color: #4ba9ce;
     font-size: 14px;
     border-bottom: dashed 1px #1f999e;
+    font-weight: normal;
     cursor: pointer;
 
     &::after{

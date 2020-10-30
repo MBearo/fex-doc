@@ -18,12 +18,19 @@ export default {
         window.location.href = url
       }
       else {
-        // 应该使用https://vuepress.github.io/zh/plugins/clean-urls/去配置一个链接列表，这样是不对的
         import('../utils/jumpJson').then(module=>{
-          const { type, name } = module.default[project][text]
+          const projectJson = module.default[project]
+          let type, name
+          for (let currentType in projectJson){
+            if (projectJson[currentType][text]){
+              type = currentType
+              name = projectJson[currentType][text]
+              break
+            }
+          }
 
           // 暂时先这样跳转，后续加入其他项目之后再修改
-          window.location.pathname = `/pages/components/${type}/${name}.html`
+          window.location.pathname = `/pages/${project}/components/${type}/${name}.html`
         })
       }
     }
@@ -36,5 +43,6 @@ span{
   color: #db1e4b;
   cursor: pointer;
   font-weight: 500;
+  margin: 0 2px;
 }
 </style>

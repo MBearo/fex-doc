@@ -5,4 +5,4 @@
 
 #### 可编辑样式
 ---
-<gls-explain :proplist="['留白','边距','背景色','颜色','字号','字重','行高']"></gls-explain>
+<explain project="gls" :proplist="['留白','边距','背景色','颜色','字号','字重','行高']"></explain>

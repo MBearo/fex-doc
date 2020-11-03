@@ -6,4 +6,4 @@
 
 #### 可编辑样式
 ---
-<gls-explain :proplist="['留白','边距']"></gls-explain>
+<explain project="gls" :proplist="['留白','边距']"></explain>

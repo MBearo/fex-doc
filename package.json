@@ -11,10 +11,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.7.1",
     "vuepress": "^1.7.1"
   },
   "dependencies": {
     "less": "^3.12.2",
-    "less-loader": "^7.0.2"
+    "less-loader": "^7.0.2",
+    "showdown": "^1.9.1"
   }
 }

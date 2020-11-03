@@ -19,15 +19,33 @@ module.exports = {
                 text: '项目',
                 ariaLabel: '项目',
                 items: [
-                    { text: 'GLS', link: '/pages/gls/components/basic/normalText.md' },
+                    { text: 'GLS', link: '/pages/gls/begin/index.md' },
                     { text: '其他1', link: '/pages/folder1/test1.md' },
                     { text: '其他2', link: '/pages/folder2/test4.md' },
                 ]
             },
-            { text: 'Github', link: 'https://github.com/dwanda' },
+            { text: 'Gitlab', link: 'https://git.lehe.com/fex/fex-doc' },
         ],
         sidebar: {
             '/pages/gls/':[
+                {
+                    title: '开始',
+                    collapsable: false,
+                    path: '/pages/gls/begin',
+                    sidebarDepth: 1,
+                    children:[
+                        ['begin/create.md', '搭建'],
+                        ['begin/preview.md', '预览'],
+                        ['begin/publish.md', '发布'],
+                        ['begin/manage.md', '管理'],
+                        ['begin/more.md', '更多信息'],
+                        {
+                            title: '其他',
+                            collapsable: false,
+                            path: 'begin/other.md'
+                        }
+                    ]
+                },
                 {
                     title: '组件',
                     collapsable: false,
@@ -81,14 +99,6 @@ module.exports = {
                             ]
                         },
                         {
-                            title: '竞包',
-                            collapsable: true,
-                            sidebarDepth: 0,    // 可选的, 默认值是 1
-                            children: [
-                                ['components/stockX/stockXProductList.md', 'stockX商品列表']
-                            ]
-                        },
-                        {
                             title: '小着',
                             collapsable: true,
                             sidebarDepth: 0,    // 可选的, 默认值是 1
@@ -129,13 +139,6 @@ module.exports = {
         }
     },
     plugins: [
-        [
-            'vuepress-plugin-clean-urls',
-            {
-                normalSuffix: '/',
-                indexSuffix: '/',
-                notFoundPath: '/404.html',
-            },
-        ],
+        '@vuepress/back-to-top',
     ],
 }

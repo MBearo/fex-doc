@@ -1,5 +1,5 @@
 ## 热区
-热区是在图片上放置多个自定义的可点击区域，每个区域都可以指定一个<gls-explain :proplist="['跳转类型']"></gls-explain>。
+热区是在图片上放置多个自定义的可点击区域，每个区域都可以指定一个<explain project="gls" :proplist="['跳转类型']"></explain>。
 
 设置热区的步骤如下：
 1. 上传图片；
@@ -9,4 +9,4 @@
 
 #### 可编辑样式
 ---
-<gls-explain :proplist="['留白','边距','背景色']"></gls-explain>
+<explain project="gls" :proplist="['留白','边距','背景色']"></explain>

@@ -4,7 +4,7 @@ heroImage: /logo.png
 heroText: GLS系统介绍
 tagline: G  L  S
 actionText: 马上进入 →
-actionLink: /pages/folder1/test1.md
+actionLink: /pages/gls/components/basic/normalText.md
 features:
 - title: 功能1
   details: 功能1的一些介绍

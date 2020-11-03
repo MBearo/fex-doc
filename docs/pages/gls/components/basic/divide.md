@@ -9,5 +9,5 @@
 
 #### 可编辑样式
 ---
-线：<gls-explain :proplist="['边距','高度','宽度','背景色']"></gls-explain>  
-空白区域：<gls-explain :proplist="['背景色']"></gls-explain>
+线：<explain project="gls" :proplist="['边距','高度','宽度','背景色']"></explain>  
+空白区域：<explain project="gls" :proplist="['背景色']"></explain>

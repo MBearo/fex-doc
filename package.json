@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "dev": "node docs/mdToJson.js && vuepress dev docs",
+    "build": "node docs/mdToJson.js && vuepress build docs"
   },
   "keywords": [],
   "author": "",

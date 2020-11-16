@@ -21,8 +21,7 @@ module.exports = {
                 ariaLabel: '项目',
                 items: [
                     { text: 'GLS', link: '/pages/gls/begin/index.md' },
-                    { text: '其他1', link: '/pages/folder1/test1.md' },
-                    { text: '其他2', link: '/pages/folder2/test4.md' },
+                    { text: '其他1', link: '/pages/folder1/test1.md' }
                 ]
             },
             { text: 'Gitlab', link: 'https://git.lehe.com/fex/fex-doc' },
@@ -124,15 +123,7 @@ module.exports = {
                     collapsable: false, // 可选的, 默认值是 true,
                     sidebarDepth: 1,    // 可选的, 默认值是 1
                     children: [
-                        ['test1.md', '子菜单1'],
-                        ['test3.md', '子菜单2']
-                    ]
-                },
-                {
-                    title: '测试菜单2',
-                    collapsable: false, // 可选的, 默认值是 true,
-                    children: [
-                        ['test2.md', '子菜单1']
+                        ['test1.md', '子菜单1']
                     ]
                 }
             ],

@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo.png
 heroText: FEX-DOC
-tagline: 更简洁、更高效的文档系统
+tagline: 简洁美观、友好高效的文档系统
 actionText: 马上进入 →
 actionLink: /pages/gls/begin/index.md
 features:

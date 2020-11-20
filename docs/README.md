@@ -2,9 +2,9 @@
 home: true
 heroImage: /logo.png
 heroText: FEX-DOC
-tagline: 从 markdown 到静态网站
+tagline: 更简洁、更高效的文档系统
 actionText: 马上进入 →
-actionLink: /pages/gls/components/basic/normalText.md
+actionLink: /pages/gls/begin/index.md
 features:
 - title: 简单好用
   details: 只需编写 markdown 文件即可生成一个功能完善、结构清晰的静态网站

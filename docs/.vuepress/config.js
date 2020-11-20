@@ -29,7 +29,7 @@ module.exports = {
         sidebar: {
             '/pages/gls/':[
                 {
-                    title: '开始',
+                    title: 'GLS',
                     collapsable: false,
                     path: '/pages/gls/begin',
                     sidebarDepth: 1,

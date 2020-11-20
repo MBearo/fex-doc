@@ -1,4 +1,4 @@
-# 开始
+# GLS
 GLS，内容创意平台，是一个可快速创建 H5 页面的可视化编辑器系统。  
 
 仅需一些简单的操作即可完成页面的<jump text="搭建" url="create.html"></jump>，随后可进行<jump text="预览" url="preview.html"></jump>、<jump text="发布" url="publish.html"></jump>等操作，此时可使用手机扫描二维码进行真机测试。  

@@ -18,10 +18,15 @@ module.exports = {
             { text: '首页', link: '/' },
             {
                 text: '项目',
-                ariaLabel: '项目',
                 items: [
                     { text: 'GLS', link: '/pages/gls/begin/start.md' },
                     { text: '其他1', link: '/pages/folder1/test1.md' }
+                ]
+            },
+            {
+                text: '了解更多',
+                items: [
+                    { text: '流程图', link: '/more/flowchat.md' },
                 ]
             },
             { text: 'Gitlab', link: 'https://git.lehe.com/fex/fex-doc' },

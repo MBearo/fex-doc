@@ -18,4 +18,5 @@ npm run dev
        ---
    ```
 2. 不要手动修改 `docs/explainContent.json`。
+3. 如果要使用 `YAML front matter` ，应在文件的开头使用，否则会将其编译为普通 markdown。
 

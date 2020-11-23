@@ -1,3 +1,7 @@
+---
+next: ./create.md
+---
+
 # GLS
 GLS，内容创意平台，是一个可快速创建 H5 页面的可视化编辑器系统。  
 
@@ -5,3 +9,19 @@ GLS，内容创意平台，是一个可快速创建 H5 页面的可视化编辑�
 
 在<jump text="管理" url="manage.html"></jump>页删除或复制制作好的页面，或者是前往<jump text="更多信息" url="more.html"></jump>，去设置页面的信息、分享设置、显示设置和历史记录。
 
+@flowstart
+st=>start: 开始
+e=>end: 结束
+process1=>operation: 操作1
+process2=>operation: 操作2
+io=>inputoutput: 输入输出
+child=>subroutine: 子程序
+cond=>condition: 选择?
+para=>parallel: 平行任务
+
+st->process1->io->cond
+cond(yes)->para
+para(path1,bottom)->process2->e
+para(path2)->e
+cond(no)->child
+@flowend

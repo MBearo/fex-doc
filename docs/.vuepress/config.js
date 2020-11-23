@@ -20,7 +20,7 @@ module.exports = {
                 text: '项目',
                 ariaLabel: '项目',
                 items: [
-                    { text: 'GLS', link: '/pages/gls/begin/index.md' },
+                    { text: 'GLS', link: '/pages/gls/begin/start.md' },
                     { text: '其他1', link: '/pages/folder1/test1.md' }
                 ]
             },
@@ -31,7 +31,7 @@ module.exports = {
                 {
                     title: 'GLS',
                     collapsable: false,
-                    path: '/pages/gls/begin',
+                    path: '/pages/gls/begin/start.md',
                     sidebarDepth: 1,
                     children:[
                         ['begin/create.md', '搭建'],
@@ -132,5 +132,6 @@ module.exports = {
     },
     plugins: [
         '@vuepress/back-to-top',
+        'flowchart'
     ],
 }

@@ -12,7 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.7.1",
-    "vuepress": "^1.7.1"
+    "vuepress": "^1.7.1",
+    "vuepress-plugin-flowchart": "^1.4.3"
   },
   "dependencies": {
     "less": "^3.12.2",

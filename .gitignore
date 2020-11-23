@@ -3,3 +3,5 @@ package-lock.json
 /docs/.vuepress/dist
 .idea
 .vscode
+.DS_Store
+*/.DS_Store

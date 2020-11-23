@@ -18,11 +18,16 @@ module.exports = {
       { text: '首页', link: '/' },
       {
         text: '项目',
-        ariaLabel: '项目',
         items: [
           { text: 'GLS', link: '/pages/gls/begin/start.md' },
           { text: 'OXP 0.2', link: '/pages/oxp/guide/introduction.md' },
           { text: '其他1', link: '/pages/folder1/test1.md' }
+        ]
+      },
+      {
+        text: '更多',
+        items: [
+          { text: '流程图', link: '/more/flowchat.md' },
         ]
       },
       { text: 'Gitlab', link: 'https://git.lehe.com/fex/fex-doc' },
@@ -128,10 +133,8 @@ module.exports = {
         },
         {
           title: '术语',
-          collapsable: false,
-          path: '/pages/oxp/trem/index.md',
+          path: '/pages/oxp/trem/',
           sidebarDepth: 1,
-          children:[]
         },
       ],
       '/pages/folder1/': [

@@ -41,109 +41,126 @@ module.exports = {
             ['begin/manage.md', '管理'],
             ['begin/more.md', '更多信息'],
             {
-              title: '其他',
-              collapsable: false,
-              path: 'begin/other.md'
-            }
-          ]
-        },
-        {
-          title: 'GLS 组件',
-          collapsable: false,
-          sidebarDepth: 0,
-          children:
-            [
-              {
-                title: '通用组件',
-                collapsable: true,
-                sidebarDepth: 0,
-                children:
-                  [
-                    ['components/basic/normalText.md', '普通文本'],
-                    ['components/basic/title.md', '标题'],
-                    ['components/basic/linkText.md', '标签文本'],
-                    ['components/basic/richText.md', '富文本组件'],
-                    ['components/basic/countDown.md', '倒计时'],
-                    ['components/basic/divide.md', '分割线'],
-                    ['components/basic/image.md', '图片'],
-                    ['components/basic/swiper.md', '轮播图'],
-                    ['components/basic/swiperWithText.md', '带文字轮播图'],
-                    ['components/basic/anchor.md', '导航锚点型'],
-                    ['components/basic/hotZone.md', '热区'],
-                    ['components/basic/audio.md', '音频'],
-                    ['components/basic/shortVideo.md', '短视频'],
-                    ['components/basic/nav.md', '标签卡'],
-                  ]
-              },
-              {
-                title: 'HIGO 组件',
-                collapsable: true,
-                sidebarDepth: 0,    // 可选的, 默认值是 1
-                children: [
-                  ['components/higo/messageBoard.md', '留言板'],
-                  ['components/higo/productList.md', '商品列表'],
-                  ['components/higo/imageWithSingleProduct.md', '图片 + 单品'],
-                  ['components/higo/imageWithText.md', '图片 + 文字'],
-                  ['components/higo/relatedHotSpots.md', '相关热点'],
-                  ['components/higo/normalCoupon.md', '普通优惠券'],
-                  ['components/higo/threeColumnCoupon.md', '三列单品带优惠券'],
-                  ['components/higo/couponGroup.md', '优惠券组'],
+                text: '项目',
+                items: [
+                    { text: 'GLS', link: '/pages/gls/begin/start.md' },
+                    { text: '其他1', link: '/pages/folder1/test1.md' }
                 ]
-              },
-              {
-                title: 'V.O/1.0',
-                collapsable: true,
-                sidebarDepth: 0,    // 可选的, 默认值是 1
-                children: [
-                  ['components/vo/singleProduct.md', 'VO单品'],
-                  ['components/vo/imageDivide.md', '裁图分割线']
+            },
+            {
+                text: '了解更多',
+                items: [
+                    { text: '流程图', link: '/more/flowchat.md' },
                 ]
-              },
-              {
-                title: '小着',
-                collapsable: true,
-                sidebarDepth: 0,    // 可选的, 默认值是 1
-                children: [
-                  ['components/xiaoZhuo/product.md', '小着横滑商品组件'],
-                  ['components/xiaoZhuo/userInfo.md', '小着个人信息']
-                ]
-              }
-            ]
-        },
-        {
-          title: 'GLS 名词解释',
-          path: '/pages/gls/explain/',
-        }
-      ],
-      '/pages/oxp/': [{
-        title: '指南',
-        collapsable: false,
-        path:'/pages/oxp/guide/introduction.md',
-        children: [
-          ['guide/introduction.md', '简介']
-        ]
-      }, {
-        title: '术语',
-        collapsable: false,
-        path:'/pages/oxp/trem/index.md',
-        children: [
-          ['trem/index.md', '简介']
-        ]
-      }],
-      '/pages/folder1/': [
-        {
-          title: '测试菜单1',   // 必要的
-          collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 1,    // 可选的, 默认值是 1
-          children: [
-            ['test1.md', '子菜单1']
-          ]
-        }
-      ],
+            },
+            { text: 'Gitlab', link: 'https://git.lehe.com/fex/fex-doc' },
+        ],
+        sidebar: {
+            '/pages/gls/':[
+                {
+                    title: 'GLS',
+                    collapsable: false,
+                    path: '/pages/gls/begin/start.md',
+                    sidebarDepth: 1,
+                    children:[
+                        ['begin/create.md', '搭建'],
+                        ['begin/preview.md', '预览'],
+                        ['begin/publish.md', '发布'],
+                        ['begin/manage.md', '管理'],
+                        ['begin/more.md', '更多信息'],
+                        {
+                            title: '其他',
+                            collapsable: false,
+                            path: 'begin/other.md'
+                        }
+                    ]
+                },
+                {
+                    title: '组件',
+                    collapsable: false,
+                    sidebarDepth: 0,
+                    children:
+                    [
+                        {
+                            title: '通用组件',
+                            collapsable: true,
+                            sidebarDepth: 0,
+                            children:
+                                [
+                                    ['components/basic/normalText.md', '普通文本'],
+                                    ['components/basic/title.md', '标题'],
+                                    ['components/basic/linkText.md', '标签文本'],
+                                    ['components/basic/richText.md', '富文本组件'],
+                                    ['components/basic/countDown.md', '倒计时'],
+                                    ['components/basic/divide.md', '分割线'],
+                                    ['components/basic/image.md', '图片'],
+                                    ['components/basic/swiper.md', '轮播图'],
+                                    ['components/basic/swiperWithText.md', '带文字轮播图'],
+                                    ['components/basic/anchor.md', '导航锚点型'],
+                                    ['components/basic/hotZone.md', '热区'],
+                                    ['components/basic/audio.md', '音频'],
+                                    ['components/basic/shortVideo.md', '短视频'],
+                                    ['components/basic/nav.md', '标签卡'],
+                                ]
+                        },
+                        {
+                            title: 'HIGO 组件',
+                            collapsable: true,
+                            sidebarDepth: 0,    // 可选的, 默认值是 1
+                            children: [
+                                ['components/higo/messageBoard.md', '留言板'],
+                                ['components/higo/productList.md', '商品列表'],
+                                ['components/higo/imageWithSingleProduct.md', '图片 + 单品'],
+                                ['components/higo/imageWithText.md', '图片 + 文字'],
+                                ['components/higo/relatedHotSpots.md', '相关热点'],
+                                ['components/higo/normalCoupon.md', '普通优惠券'],
+                                ['components/higo/threeColumnCoupon.md', '三列单品带优惠券'],
+                                ['components/higo/couponGroup.md', '优惠券组'],
+                            ]
+                        },
+                        {
+                            title: 'V.O/1.0',
+                            collapsable: true,
+                            sidebarDepth: 0,    // 可选的, 默认值是 1
+                            children: [
+                                ['components/vo/singleProduct.md', 'VO单品'],
+                                ['components/vo/imageDivide.md', '裁图分割线']
+                            ]
+                        },
+                        {
+                            title: '小着',
+                            collapsable: true,
+                            sidebarDepth: 0,    // 可选的, 默认值是 1
+                            children: [
+                                ['components/xiaoZhuo/product.md', '小着横滑商品组件'],
+                                ['components/xiaoZhuo/userInfo.md', '小着个人信息']
+                            ]
+                        }
+                    ]
+                },
+                {
 
-    }
-  },
-  plugins: [
-    '@vuepress/back-to-top',
-  ],
+                        title: '名词解释',
+                        path:'/pages/gls/explain/',
+
+                }
+
+            ],
+            '/pages/folder1/':[
+                {
+                    title: '测试菜单1',   // 必要的
+                    collapsable: false, // 可选的, 默认值是 true,
+                    sidebarDepth: 1,    // 可选的, 默认值是 1
+                    children: [
+                        ['test1.md', '子菜单1']
+                    ]
+                }
+            ],
+
+        }
+    },
+    plugins: [
+        '@vuepress/back-to-top',
+        'flowchart'
+    ],
 }

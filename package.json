@@ -16,8 +16,11 @@
     "vuepress-plugin-flowchart": "^1.4.3"
   },
   "dependencies": {
+    "async-validator": "^1.11.5",
+    "element-ui": "^2.14.1",
     "less": "^3.12.2",
     "less-loader": "^7.0.2",
+    "prismjs": "^1.22.0",
     "showdown": "^1.9.1"
   }
 }

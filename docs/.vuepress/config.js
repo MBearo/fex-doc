@@ -21,6 +21,7 @@ module.exports = {
         items: [
           { text: 'GLS', link: '/pages/gls/begin/start.md' },
           { text: 'OXP 0.2', link: '/pages/oxp/guide/introduction.md' },
+          { text: 'Basic Component', link: '/pages/basicComponent/guide/introduction.md' },
           { text: '其他1', link: '/pages/folder1/test1.md' }
         ]
       },
@@ -147,7 +148,25 @@ module.exports = {
           ]
         }
       ],
-
+      '/pages/basicComponent/':[
+        {
+          title: '简介',   // 必要的
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 1,    // 可选的, 默认值是 1
+          children: [
+            ['guide/introduction.md', '简介']
+          ]
+        },{
+          title: 'BasicView',   // 必要的
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 1,    // 可选的, 默认值是 1
+          children: [
+            ['component/0.3.md', 'v0.3'],
+            ['component/0.2.md', 'v0.2'],
+            ['component/0.1.md', 'v0.1']
+          ]
+        }
+      ]
     },
   },
   plugins: [

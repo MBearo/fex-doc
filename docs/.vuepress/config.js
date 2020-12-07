@@ -22,14 +22,16 @@ module.exports = {
           { text: 'GLS', link: '/pages/gls/begin/start.md' },
           { text: 'OXP 0.2', link: '/pages/oxp/guide/introduction.md' },
           { text: 'Basic Component', link: '/pages/basicComponent/guide/introduction.md' },
-          { text: '其他1', link: '/pages/folder1/test1.md' },
-          { text: '可执行代码段测试', link: '/pages/test/start.md' }
+          { text: '其他1', link: '/pages/folder1/test1.md' }
         ]
       },
       {
-        text: '更多',
+        text: '插件',
         items: [
-          { text: '流程图', link: '/more/flowchat.md' },
+          { text: '跳转', link: '/plugins/jump.md' },
+          { text: '预览', link: '/plugins/explain.md' },
+          { text: '流程图', link: '/plugins/flowchat.md' },
+          { text: '可执行代码', link: '/plugins/code.md' },
         ]
       },
       { text: 'Gitlab', link: 'https://git.lehe.com/fex/fex-doc' },
@@ -167,6 +169,12 @@ module.exports = {
             ['component/0.1.md', 'v0.1']
           ]
         }
+      ],
+      '/plugins/': [
+        ['jump.md', '跳转'],
+        ['explain.md', '预览'],
+        ['flowchat.md', '流程图'],
+        ['code.md', '可执行代码']
       ]
     },
   },

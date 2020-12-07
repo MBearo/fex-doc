@@ -3,7 +3,7 @@
     <RouterLink :to="`/pages/gls/explain/#${item}`" v-for="item in $props.proplist" :key="item">
       <span class="text" @mouseenter="getTip($event,item)" @mouseleave="cancelTip">{{item}}</span>
     </RouterLink>
-    <div v-if="isShowTip" v-html="content" class="explain-content" :class="isShowTip ? 'enter' : ''" :style="{left: left+'px',top: top+'px'}"/>
+    <div v-show="isShowTip" v-html="content" class="explain-content" :class="isShowTip ? 'enter' : ''" :style="{left: left+'px',top: top+'px'}"/>
   </span>
 </template>
 
@@ -94,12 +94,28 @@ export default {
       padding: 0 12px;
       border-radius: 5px;
       box-shadow: 0 2px 5px 2px rgba(212, 209, 209, 0.3);
+      //filter: drop-shadow(0 0 4px rgba(212, 209, 209, 0.4)); // filter的锅
       z-index: 2;
       transform-origin: left top;
       pointer-events: none;
+      //background-color: #1f999e;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        border-top: none;
+        border-left: solid 10px transparent;
+        border-right: solid 10px transparent;
+        border-bottom: solid 10px white;
+        //box-shadow: 0 2px 5px 2px rgba(2, 209, 209, 1);
+        z-index: 1;
+      }
+
 
       &.enter {
-        animation: enter linear 0.5s forwards;
+        animation: enter ease-out 0.3s forwards;
       }
     }
   }

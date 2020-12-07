@@ -22,7 +22,8 @@ module.exports = {
           { text: 'GLS', link: '/pages/gls/begin/start.md' },
           { text: 'OXP 0.2', link: '/pages/oxp/guide/introduction.md' },
           { text: 'Basic Component', link: '/pages/basicComponent/guide/introduction.md' },
-          { text: '其他1', link: '/pages/folder1/test1.md' }
+          { text: '其他1', link: '/pages/folder1/test1.md' },
+          { text: '可执行代码段测试', link: '/pages/test/start.md' }
         ]
       },
       {

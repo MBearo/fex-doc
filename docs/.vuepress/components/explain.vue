@@ -3,9 +3,7 @@
     <RouterLink :to="`/pages/gls/explain/#${item}`" v-for="item in $props.proplist" :key="item">
       <span class="text" @mouseenter="getTip($event,item)" @mouseleave="cancelTip">{{item}}</span>
     </RouterLink>
-    <transition name="slide-fade">
-      <div v-if="isShowTip" v-html="content" class="content" :style="{left: left+'px',top: top+'px'}"></div>
-    </transition>
+    <div v-if="isShowTip" v-html="content" class="explain-content" :class="isShowTip ? 'enter' : ''" :style="{left: left+'px',top: top+'px'}"/>
   </span>
 </template>
 
@@ -38,8 +36,10 @@ export default {
           "tasklists":true
         })
         this.content = converter.makeHtml(obj.content)
-        this.left = left + width + 3
-        this.top = top + height + 3
+        const wp = document.createElement('div')
+        wp.innerHTML = this.content
+        this.left = left + width - 20
+        this.top = top + height + 10
         this.isShowTip = true
       })
     },
@@ -88,31 +88,30 @@ export default {
       }
     }
 
-    .content {
+    .explain-content {
       position: fixed;
       background-color: white;
       padding: 0 12px;
       border-radius: 5px;
-      box-shadow: 0 2px 5px 2px rgba(220,220,220,0.3);
+      box-shadow: 0 2px 5px 2px rgba(212, 209, 209, 0.3);
       z-index: 2;
-      transform: scale(0.7);
       transform-origin: left top;
       pointer-events: none;
+
+      &.enter {
+        animation: enter linear 0.5s forwards;
+      }
     }
   }
 
-  /* 可以设置不同的进入和离开动画 */
-  /* 设置持续时间和动画函数 */
-  .slide-fade-enter-active {
-    transition: all .3s ease;
+  @keyframes enter {
+    0%{
+      transform: scale(0.7) translateY(-10px);
+    }
+    100%{
+      transform: scale(0.7) translateY(0);
+    }
   }
-  .slide-fade-leave-active {
-    transition: all .3s ease;
-  }
-  .slide-fade-enter, .slide-fade-leave-to {
-    opacity: 0;
-  }
-
 
   @keyframes colorChange {
     0%{

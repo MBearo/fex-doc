@@ -1,6 +1,6 @@
 <template>
   <div class="code-content">
-    <iframe :srcdoc="htmlCode" class="iframe-content"></iframe>
+    <iframe :srcdoc="htmlCode" class="iframe-content" :style="{height: `${iframeHeight+40}px`}"></iframe>
     <div class="toolbar">
       <div>
         <div v-show="isExpand">
@@ -48,25 +48,34 @@
     },
     data(){
       return {
-        id: '',
         isExpand: false, // 是否展开代码
         isEditing: false, // 是否正在编辑代码
         isChange: false, // 是否修改过，不管有没有修改，只要点了【编辑】，都算修改，直到点击【重置】
+        iframeHeight: 'auto',
         editedHtml: '',
         editedCss: '',
-        editedScript: ''
+        editedScript: '',
+        heightId: Math.random() // 因为iframe向父窗口通信的时候所有的fe-code-box都可以接受到，因此用随机数来区别到底是哪一个
       }
     },
     computed: {
       htmlCode () {
         let code = ''
+        // 嵌入计算iframe高度的js代码，计算完毕之后通过postMessage发送给父窗口
+        const calcHeight = `
+          function calcHeight() {
+            const height = document.body.clientHeight
+            const parentWindow = this.parent
+            parentWindow.postMessage({symbol: ${this.heightId},height}, '*')
+          }
+          calcHeight()
+        `
         if (this.isChange) {
-          code = `<html><head><style>${this.editedCss}</style></head><body>${this.editedHtml}<script>${this.editedScript}<\/script></body></html>`
+          code = `<html><head><style>${this.editedCss}</style></head><body>${this.editedHtml}<script>${this.editedScript}<\/script><script>${calcHeight}<\/script></body></html>`
         } else {
-          code = `<html><head><style>${this.css}</style></head><body>${this.html}<script>${this.script}<\/script></body></html>`
+          code = `<html><head><style>${this.css}</style></head><body>${this.html}<script>${this.script}<\/script><script>${calcHeight}<\/script></body></html>`
         }
         return code
-        return `<html><head><style>${this.css}</style></head><body>${this.html}<script>${this.script}<\/script></body></html>`
       },
       highlightHtml () {
         const html = this.isChange ? this.editedHtml : this.html
@@ -94,7 +103,7 @@
           editedScript: ''
         })
       },
-      edit(status) {
+      edit() {
         Object.assign(this, {
           isChange: true,
           isEditing: true,
@@ -105,9 +114,9 @@
       },
       finish() {
         const { html, css, script } = this.$refs
-        const hT = html.innerText
-        const hC = css.innerText
-        const hS = script.innerText
+        const hT = html ? html.innerText : ''
+        const hC = css ? css.innerText : ''
+        const hS = script ? script.innerText : ''
         Object.assign(this, {
           isEditing: false,
           editedHtml: hT,
@@ -118,9 +127,9 @@
           this.isChange = false
         }
       },
-      // div或其他元素设置contenteditable为true，并且在手机端和谷歌、ie、等浏览器上，按下回车的时候，在这个div中会自动生成div或者p，而我们需要的是生成br标签
       addBrWhenEnter(e) {
         const { keyCode, target } = e
+        // div或其他元素设置contenteditable为true，并且在手机端和谷歌、ie、等浏览器上，按下回车的时候，在这个div中会自动生成div或者p，而我们需要的是生成br标签
         if(keyCode === 13) {
           // 阻止默认行为
           if(e.preventDefault) {
@@ -160,8 +169,46 @@
           sel.removeAllRanges()
           sel.addRange(tempRange)
         }
+        // 执行制表符的行为，而不是切换到下一个链接
+        if (keyCode === 9) {
+          if(e.preventDefault) {
+            e.preventDefault()
+          } else {
+            e.returnValue = false
+          }
+          const sel = window.getSelection()
+          const rang = sel.rangeCount > 0 ? sel.getRangeAt(0) : null
+          if(rang === null) {
+            return false
+          }
+          rang.deleteContents()
+          let tempRange = rang.cloneRange()
+          tempRange.selectNodeContents(target)
+          tempRange.setEnd(rang.endContainer, rang.endOffset)
+          const tab = document.createTextNode("\u00a0\u00a0\u00a0\u00a0");
+          rang.insertNode(tab)
+          tempRange = document.createRange()
+          tempRange.selectNodeContents(target)
+          tempRange.setStart(rang.endContainer, rang.endOffset)
+          tempRange.setEnd(rang.endContainer, rang.endOffset);
+          sel.removeAllRanges()
+          sel.addRange(tempRange)
+        }
+      },
+      handleHeight(e) {
+        const { symbol, height } = e.data
+        // 只拿自己的高度
+        if (symbol === this.heightId) {
+          this.iframeHeight = height
+        }
       }
     },
+    mounted() {
+      window.addEventListener("message", this.handleHeight)
+    },
+    beforeMount() {
+      window.removeEventListener("message", this.handleHeight)
+    }
   }
 </script>
 
@@ -173,7 +220,7 @@
     width: 100%;
     border: 1px solid #ebeef5;;
     box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
-    padding: 20px;
+    padding: 20px 20px 10px;
     margin: 20px 0;
 
     .iframe-content {
@@ -186,7 +233,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: 10px;
     }
 
     .icon-wp {
@@ -219,7 +265,7 @@
       }
       &.operate-btn {
         color: #3ebaff;
-        padding: 4px 6px;
+        padding: 6px 8px;
         border-radius: 4px;
         transition: all .3s;
         font-size: 12px;

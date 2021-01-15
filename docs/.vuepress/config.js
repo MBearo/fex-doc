@@ -180,6 +180,17 @@ module.exports = {
   },
   plugins: [
     '@vuepress/back-to-top',
-    'flowchart'
+    'flowchart',
+    [
+      'vuepress-plugin-medium-zoom',
+      {
+        delay: 1000,
+        options: {
+          margin: 24,
+          background: 'rgba(0, 0, 0, 0.3)',
+          scrollOffset: 0,
+        },
+      },
+    ]
   ]
 }

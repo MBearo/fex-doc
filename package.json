@@ -13,7 +13,8 @@
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.7.1",
     "vuepress": "^1.7.1",
-    "vuepress-plugin-flowchart": "^1.4.3"
+    "vuepress-plugin-flowchart": "^1.4.3",
+    "vuepress-plugin-medium-zoom": "^1.1.9"
   },
   "dependencies": {
     "async-validator": "^1.11.5",
